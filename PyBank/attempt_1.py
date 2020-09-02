@@ -69,7 +69,8 @@ with open("budget_data.csv") as csv_file:
     for row in csv_reader:
         print(row)
         break
-        print(next(csv_reader))
+    next(csv_reader)
+    print(row)
 
 
         # value = (type(row[1]))
