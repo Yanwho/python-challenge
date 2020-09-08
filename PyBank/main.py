@@ -16,6 +16,8 @@ with open("budget_data.csv", "r") as file:
     reader = csv.DictReader(file)
     print("reader: ", reader)
     print(10 * "=")
+    # create new text file for reporting
+    output_file = "budget_analysis.txt"
 #  iterate through the file and perform calculations    
     for row in reader:
         month_count += 1
