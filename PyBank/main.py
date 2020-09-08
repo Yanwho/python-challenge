@@ -3,7 +3,8 @@ import csv
 from typing import List
 
 filepath = os.path.join("budget_data.csv")
-report_file = "financial_analysis.txt"
+OUT_PATH = os.path.join("Analysis", "financial_analysis.txt")
+
 prior_month = 0
 
 best_month = 0
@@ -136,7 +137,7 @@ print("Best Gain: ", formatted_best_gain)
 print("Worst Month: ",worst_month)
 print("Worst Loss: ", formatted_worst_loss)
 
-with open(report_file, "w") as txt:
+with open(OUT_PATH, "w") as txt:
     txt.write("Financial Analysis:" + "\n")
     txt.write("--------------------------------------" + "\n")
     txt.write("Sum Profits: " + formatted_profit  + "\n")
