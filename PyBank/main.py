@@ -65,89 +65,37 @@ with open("budget_data.csv", "r") as file:
             worst_loss = min(profit_difference)
             best_gain = max(profit_difference)
 
-
-            # if float(profit_difference) > greatest_increase:
-            #     greatest_increase = profit_difference
-            #     best_month = row["Date"]
-
-            # if float(row["Profit/Losses"]) > float(greatest_increase):
-            #     greatest_increase = row["Date"]
-            # if float(row["Profit/Losses"]) < float(greatest_decrease):
-            #     greatest_decrease = row["Date"]
-
-
-
-
-
     average_change = (sum(profit_difference) / len(profit_difference))
     formatted_difference = "${:,.2f}".format(average_change)
-    # Find best and worst months
-    # if float(initial_month) < float(prior_month):
-    #
-    #
-    # if float(resulting_month) < float(prior_month):
-    #         greatest_increase = resulting_month
 
+print(40 * "*")
 
-
-
-
-    # else:
-    #     initial_month = row["Profit/Losses"]
-    #     if float(resulting_month) > float(initial_month):
-    #         greatest_decrease = prior_month
-    #         worst_month = row["Date"]
-    #         worst_loss = profit_difference
-
-
-
-
-        # track the net change
-        # net_change =
-        # previous_net =
-        # net_change_list += [net_change]
-        # month_of_change += row["Date"]
-
-        # calculate the greatest increase
-        # calc the greatest decrease
-
-
-        # net_change = 0
-        # row_dict = dict(row)
-        # profit = row_dict["Profit/Losses"]
-        # profit_float = float(profit)
-        # sum_profits += profit_float
-
-
-
-
-
-print(50 * "*")
-
-# print the profit in a currency format with commas 2 decimal places
+# print the profit and gains/losses in a currency format with commas 2 decimal places
 formatted_profit = "${:,.2f}".format(sum_profits)
 formatted_worst_loss = "${:,.2f}".format(worst_loss)
 formatted_best_gain = "${:,.2f}".format(best_gain)
 print("Sum Profits: ", formatted_profit)
 print("Month Count: ", month_count)
 print("Average Profit Difference: ", formatted_difference)
+# cannot get the best and worst month to print
 print("Best Month: ", best_month)
 print("Best Gain: ", formatted_best_gain)
-    # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
 print("Worst Month: ",worst_month)
 print("Worst Loss: ", formatted_worst_loss)
-
+print(40 * "*")
+# writing the findings to the report file
 with open(OUT_PATH, "w") as txt:
     txt.write("Financial Analysis:" + "\n")
-    txt.write("--------------------------------------" + "\n")
+    txt.write(40 * "-" + "\n")
     txt.write("Sum Profits: " + formatted_profit  + "\n")
     txt.write("Month Count: " + str(month_count)  + "\n")
     txt.write("Average Profit Difference: " + formatted_difference  + "\n")
+    # cannot get the month to print
     txt.write("Best Month: " + str(best_month)  + "\n")
     txt.write("Best Gain: "+ formatted_best_gain + "\n")
-    # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
     txt.write("Worst Month: " + str(worst_month) + "\n")
     txt.write("Worst Loss: " + formatted_worst_loss  + "\n")
+    txt.write(40 * "*")
 
 
 
