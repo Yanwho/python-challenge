@@ -1,18 +1,18 @@
+# import required modules
 import os
 import csv
-from typing import List
 
+# variable to point to data set
 filepath = os.path.join("budget_data.csv")
+# variable to point to new file being created
 report_file = os.path.join("Analysis", "financial_analysis.txt")
 
-# variables that work
+# variables
 best_gain = 0
 worst_loss = 0
 profit_difference = []
 sum_profits = 0
 month_count = 0
-
-# variables I can't get working:
 greatest_increase = float(-99999999999999)
 greatest_decrease = float(999999999999)
 best_month = 0
