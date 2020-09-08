@@ -1,9 +1,10 @@
 import os
 import csv
+from typing import List
 
 filepath = os.path.join("budget_data.csv")
 prior_month = 0
-resulting_month = []
+
 best_month = 0
 best_gain = 0
 worst_month = 0
@@ -16,8 +17,8 @@ sum_profits = 0
 month_count = 0
 monthly_change = []
 net_change_list = []
-greatest_increase = ["", 0]
-greatest_decrease = ["", 9999999999]
+greatest_increase = float(-99999999999999)
+greatest_decrease = float(999999999999)
 
 # The total number of months included in the dataset
 #
@@ -58,16 +59,32 @@ with open("budget_data.csv", "r") as file:
             resulting_month = float(row["Profit/Losses"]) - float(prior_month)
             profit_difference.append(resulting_month)
             prior_month = row["Profit/Losses"]
-    average_change = round((sum(profit_difference) / len(profit_difference)), 2)
+            worst_loss = min(profit_difference)
+            best_gain = max(profit_difference)
+
+
+            # if float(profit_difference) > greatest_increase:
+            #     greatest_increase = profit_difference
+            #     best_month = row["Date"]
+
+            # if float(row["Profit/Losses"]) > float(greatest_increase):
+            #     greatest_increase = row["Date"]
+            # if float(row["Profit/Losses"]) < float(greatest_decrease):
+            #     greatest_decrease = row["Date"]
+
+
+
+
+
+    average_change = (sum(profit_difference) / len(profit_difference))
     formatted_difference = "${:,.2f}".format(average_change)
     # Find best and worst months
-    if float(initial_month) < (resulting_month):
-            worst_month = row["Date"]
-            worst_loss = row["Date"], min(profit_difference)
-    if float(resulting_month) < float(prior_month):
-            greatest_increase = resulting_month
-            best_month = row["Date"]
-            best_gain = max(profit_difference)
+    # if float(initial_month) < float(prior_month):
+    #
+    #
+    # if float(resulting_month) < float(prior_month):
+    #         greatest_increase = resulting_month
+
 
 
 
@@ -78,11 +95,7 @@ with open("budget_data.csv", "r") as file:
     #         greatest_decrease = prior_month
     #         worst_month = row["Date"]
     #         worst_loss = profit_difference
-    print("Best Month: ", best_month)
-    print("Best Gain: ", best_gain)
-    # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
-    print("Worst Month: ",worst_month)
-    print("Worst Loss: ", worst_loss)
+
 
 
 
@@ -110,10 +123,16 @@ print(50 * "*")
 
 # print the profit in a currency format with commas 2 decimal places
 formatted_profit = "${:,.2f}".format(sum_profits)
+formatted_worst_loss = "${:,.2f}".format(worst_loss)
+formatted_best_gain = "${:,.2f}".format(best_gain)
 print("Sum Profits: ", formatted_profit)
 print("Month Count: ", month_count)
 print("Average Profit Difference: ", formatted_difference)
-
+print("Best Month: ", best_month)
+print("Best Gain: ", formatted_best_gain)
+    # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
+print("Worst Month: ",worst_month)
+print("Worst Loss: ", formatted_worst_loss)
 
 
 
