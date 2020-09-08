@@ -39,6 +39,13 @@ with open("budget_data.csv", "r") as file:
             prior_month = row["Profit/Losses"]
             worst_loss = min(profit_difference)
             best_gain = max(profit_difference)
+            # name the date associated with min and max
+            if resulting_month == min(profit_difference):
+                greatest_decrease = resulting_month
+                worst_month = row["Date"]
+            if resulting_month == max(profit_difference):
+                greatest_increase = resulting_month
+                best_month = row["Date"]
 
 average_change = (sum(profit_difference) / len(profit_difference))
 formatted_difference = "${:,.2f}".format(average_change)
@@ -53,7 +60,7 @@ formatted_best_gain = "${:,.2f}".format(best_gain)
 # print("Month Count: ", month_count)
 # print("Average Profit Difference: ", formatted_difference)
 # # cannot get the best and worst month to print
-# print("Best Month: ", best_month)
+# print("Best Month: ", (best_month))
 # print("Best Gain: ", formatted_best_gain)
 # print("Worst Month: ",worst_month)
 # print("Worst Loss: ", formatted_worst_loss)
@@ -65,11 +72,8 @@ with open(report_file, "w") as txt:
     txt.write("Sum Profits: " + formatted_profit  + "\n")
     txt.write("Month Count: " + str(month_count)  + "\n")
     txt.write("Average Profit Difference: " + formatted_difference  + "\n")
-    # cannot get the month to print
-    txt.write("Best Month: " + str(best_month)  + "\n")
-    txt.write("Best Gain: "+ formatted_best_gain + "\n")
-    txt.write("Worst Month: " + str(worst_month) + "\n")
-    txt.write("Worst Loss: " + formatted_worst_loss  + "\n")
+    txt.write("Best Gain was "+ str(best_month) + " at: " + formatted_best_gain + "\n")
+    txt.write("Worst Loss was " + str(worst_month) + " at: " + formatted_worst_loss  + "\n")
     txt.write(40 * "*")
 
 
