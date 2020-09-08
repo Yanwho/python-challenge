@@ -137,14 +137,16 @@ print("Worst Month: ",worst_month)
 print("Worst Loss: ", formatted_worst_loss)
 
 with open(report_file, "w") as txt:
-    txt.write("Sum Profits: " + formatted_profit)
-    txt.write("Month Count: " + str(month_count))
-    txt.write("Average Profit Difference: " + formatted_difference)
-    txt.write("Best Month: " + str(best_month))
-    txt.write("Best Gain: "+ formatted_best_gain)
+    txt.write("Financial Analysis:" + "\n")
+    txt.write("--------------------------------------" + "\n")
+    txt.write("Sum Profits: " + formatted_profit  + "\n")
+    txt.write("Month Count: " + str(month_count)  + "\n")
+    txt.write("Average Profit Difference: " + formatted_difference  + "\n")
+    txt.write("Best Month: " + str(best_month)  + "\n")
+    txt.write("Best Gain: "+ formatted_best_gain + "\n")
     # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
-    txt.write("Worst Month: " + str(worst_month))
-    txt.write("Worst Loss: " + formatted_worst_loss)
+    txt.write("Worst Month: " + str(worst_month) + "\n")
+    txt.write("Worst Loss: " + formatted_worst_loss  + "\n")
 
 
 
