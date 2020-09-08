@@ -3,7 +3,7 @@ import os
 import csv
 
 # variable to point to data set
-filepath = os.path.join("budget_data.csv")
+filepath = os.path.join("resources", "budget_data.csv")
 # variable to point to new file being created
 report_file = os.path.join("Analysis", "financial_analysis.txt")
 

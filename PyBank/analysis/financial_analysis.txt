@@ -1,0 +1,8 @@
+Financial Analysis:
+----------------------------------------
+Sum Profits: $38,382,578.00
+Month Count: 86
+Average Profit Difference: $-2,315.12
+Best Gain was Feb-2012 at: $1,926,159.00
+Worst Loss was Sep-2013 at: $-2,196,167.00
+****************************************
