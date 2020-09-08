@@ -3,6 +3,7 @@ import csv
 from typing import List
 
 filepath = os.path.join("budget_data.csv")
+report_file = "financial_analysis.txt"
 prior_month = 0
 
 best_month = 0
@@ -37,6 +38,7 @@ output_file = "budget_analysis.txt"
 with open("budget_data.csv", "r") as file:
     print("file: ", file)
     reader = csv.DictReader(file)
+
 
 
 
@@ -134,7 +136,15 @@ print("Best Gain: ", formatted_best_gain)
 print("Worst Month: ",worst_month)
 print("Worst Loss: ", formatted_worst_loss)
 
-
+with open(report_file, "w") as txt:
+    txt.write("Sum Profits: " + formatted_profit)
+    txt.write("Month Count: " + str(month_count))
+    txt.write("Average Profit Difference: " + formatted_difference)
+    txt.write("Best Month: " + str(best_month))
+    txt.write("Best Gain: "+ formatted_best_gain)
+    # summary = f"Best Month: ", best_month, "Best Gain: ", best_gain"
+    txt.write("Worst Month: " + str(worst_month))
+    txt.write("Worst Loss: " + formatted_worst_loss)
 
 
 
