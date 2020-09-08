@@ -21,7 +21,7 @@ worst_month = 0
 # create output file
 output_file = "budget_analysis.txt"
 # open the file and read it
-with open("budget_data.csv", "r") as file:
+with open(filepath, "r") as file:
     print("file: ", file)
     reader = csv.DictReader(file)
 
