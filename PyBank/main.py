@@ -6,6 +6,8 @@ filepath = os.path.join("budget_data.csv")
 sum_profits = (0)
 month_count = (0)
 monthly_change = []
+first_month = (1)
+
 
 
 # open the file and read it
@@ -28,3 +30,11 @@ print(50 * "*")
 formatted_profit = "${:,.2f}".format(sum_profits)
 print("Sum Profits: ", formatted_profit)
 print("Month Count: ", month_count)
+
+for row in reader:
+        if month_count == 1:
+            previous_month = row["Profit/Losses"]
+        else: current_month = float(row["Profit/Losses"]) - float(previous_month)
+
+
+
