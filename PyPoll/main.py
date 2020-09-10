@@ -1,41 +1,62 @@
 import os
 import csv
 
-
-
-
-khan_count = 0
-correy_count = 0
-li_count = 0
-otooley_count = 0
-
-candidates = []
+candidate = []
+vote_total = 0
+candidates_count = [0]
+# print("candidates_count: ")
+# print(type(candidates_count))
 
 filepath = os.path.join("resources", "election_data.csv")
-
+reader = csv.reader(filepath)
 # Split the data on commas since that is your delimiter
 with open(filepath) as file:
-    for row in csv.DictReader(file):
-        voter_id = row["Voter ID"]
-        county = row["County"]
-        candidate = row["Candidate"]
-        if candidate not in candidates:
-            candidates.append(candidate)
-    for candidate in candidates:
-        if candidate == "Khan":
-            khan_count += 1
-        elif candidate == "Correy":
-                correy_count += 1
-        elif candidate == "Li":
-                li_count += 1
-        elif candidate == "O'Tooley":
-                otooley_count += 1
-    print(khan_count)
-    print(correy_count)
-    print(li_count)
-    print(otooley_count)
-    print(candidates)
 
+    for row in csv.reader(file):
+        vote_total += 1
+
+    # line = next(file, None)
+        candidate.append(row[2])
+
+candidates_count = [[count_of, candidate.count(count_of)] for count_of in set(candidate)]
+        # vote_total += 1
+        # voter_id = row["Voter ID"]
+        # county = row["County"]
+        # candidate_name = row["Candidate"]
+
+        # if candidate_name not in candidates:
+        #     candidates.append(candidate_name)
+        #     print(candidates)
+
+
+        # candidates_count = candidates.count(candidate_name)
+        #
+        # print(candidates_count)
+print(candidate)
+print(candidates_count)
+print("Election Results")
+print("-" * 25)
+print("Total Votes: ", vote_total)
+print("-" * 25)
+
+    #         if candidate == "Khan":
+    #             khan_count += 1
+    #         elif candidate == "Correy":
+    #             correy_count += 1
+    #         elif candidate == "Li":
+    #             li_count += 1
+    #         elif candidate == "O'Tooley":
+    #             otooley_count += 1
+    # print(khan_count)
+    # print(correy_count)
+    # print(li_count)
+    # print(otooley_count)
+    # print(candidates)
+
+    # khan_count = 0
+# correy_count = 0
+# li_count = 0
+# otooley_count = 0
 
 
     # csvreader = csv.reader(file, delimiter=',')
