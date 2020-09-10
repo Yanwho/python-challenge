@@ -22,10 +22,7 @@ worst_month = 0
 output_file = "budget_analysis.txt"
 # open the file and read it
 with open(filepath, "r") as file:
-    print("file: ", file)
     reader = csv.DictReader(file)
-
-    print(10 * "=")
 
 #  iterate through the file and perform calculations    
     for row in reader:
@@ -53,19 +50,7 @@ formatted_difference = "${:,.2f}".format(average_change)
 formatted_profit = "${:,.2f}".format(sum_profits)
 formatted_worst_loss = "${:,.2f}".format(worst_loss)
 formatted_best_gain = "${:,.2f}".format(best_gain)
-# # # printing of results for easy view in PyCharm without bouncing to and from file
-# # print the profit and gains/losses in a currency format with commas 2 decimal places
-# print(40 * "*")
-# print("Sum Profits: ", formatted_profit)
-# print("Month Count: ", month_count)
-# print("Average Profit Difference: ", formatted_difference)
-# # cannot get the best and worst month to print
-# print("Best Month: ", (best_month))
-# print("Best Gain: ", formatted_best_gain)
-# print("Worst Month: ",worst_month)
-# print("Worst Loss: ", formatted_worst_loss)
-# print(40 * "*")
-# writing the findings to the report file
+
 with open(report_file, "w") as txt:
     txt.write("Financial Analysis:" + "\n")
     txt.write(40 * "-" + "\n")

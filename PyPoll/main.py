@@ -7,7 +7,7 @@ vote_total = 0
 candidates_count = {}
 candidate_list = {}
 filepath = os.path.join("resources", "election_data.csv")
-report_file = os.path.join("Analysis", "results.txt")
+report_file = os.path.join("Analysis", "election_results.txt")
 
 # creating list of candidates from dataset
 with open(filepath) as file:
