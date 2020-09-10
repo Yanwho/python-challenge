@@ -8,10 +8,11 @@ candidates_count = [0]
 # print(type(candidates_count))
 
 filepath = os.path.join("resources", "election_data.csv")
-reader = csv.reader(filepath)
+
 # Split the data on commas since that is your delimiter
 with open(filepath) as file:
-
+    reader = csv.reader(file)
+    next(reader)
     for row in csv.reader(file):
         vote_total += 1
 
