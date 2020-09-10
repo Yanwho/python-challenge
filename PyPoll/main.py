@@ -103,14 +103,15 @@ print(winner + " is the winner!")
 
 with open(report_file, "w") as txt:
     txt.write("Election Results" + "\n")
-    txt.write(40 * "-" + "\n")
+    txt.write(25 * "-" + "\n")
     txt.write("Total Votes: " + str(vote_total) + "\n")
-    txt.write(40 * "-" + "\n")
+    txt.write(25 * "-" + "\n")
     txt.write(candidate_0_result + "\n")
     txt.write(candidate_1_result + "\n")
     txt.write(candidate_2_result + "\n")
     txt.write(candidate_3_result + "\n")
+    txt.write(25 * "-" + "\n")
     txt.write("Winner: " + str(winner) + "\n")
-    txt.write(40 * "*")
+    txt.write(25 * "-")
 
 
