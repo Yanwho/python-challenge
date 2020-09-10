@@ -15,11 +15,11 @@ with open(filepath) as file:
     next(reader)
     for row in csv.reader(file):
         vote_total += 1
-
-    # line = next(file, None)
         candidate.append(row[2])
 
 candidates_count = [[count_of, candidate.count(count_of)] for count_of in set(candidate)]
+
+
         # vote_total += 1
         # voter_id = row["Voter ID"]
         # county = row["County"]
@@ -33,12 +33,40 @@ candidates_count = [[count_of, candidate.count(count_of)] for count_of in set(ca
         # candidates_count = candidates.count(candidate_name)
         #
         # print(candidates_count)
-print(candidate)
-print(candidates_count)
+
+# print(candidate)
+# print(candidates_count)
 print("Election Results")
 print("-" * 25)
 print("Total Votes: ", vote_total)
 print("-" * 25)
+# print(candidates_count[0])
+candidate_0 = (candidates_count[0])
+c = (candidate_0[0])
+d = (candidate_0[1])
+percent_won = round(((d) / vote_total) *100)
+print(f"{c}: {percent_won}% {d}")
+
+candidate_1 = (candidates_count[1])
+c = (candidate_1[0])
+d = (candidate_1[1])
+percent_won = round(((d) / vote_total) *100)
+print(f"{c}: {percent_won}% {d}")
+
+candidate_2 = (candidates_count[2])
+c = (candidate_2[0])
+d = (candidate_2[1])
+percent_won = round(((d) / vote_total) *100)
+print(f"{c}: {percent_won}% {d}")
+
+candidate_3 = (candidates_count[3])
+c = (candidate_3[0])
+d = (candidate_3[1])
+percent_won = round(((d) / vote_total) *100)
+print(f"{c}: {percent_won}% {d}")
+
+
+
 
     #         if candidate == "Khan":
     #             khan_count += 1
